@@ -6,32 +6,41 @@
 
 header .content
 {
-    display: flex;
-    padding: 50px;
+	display: flex;
+	flex-flow: column nowrap;
 
-	/* align-items: center;
+/* align-items: center;
 	justify-content: center; */
 
 	height: 100%;
+	padding: 50px;
 }
 
 .search
 {
 	position: relative;
-    height: 60px;
-    min-width: 600px;
-    text-transform: uppercase;
+
+	align-self: flex-start;
+
+	min-width: 600px;
+	height: 60px;
+	margin-bottom: 50px;
+
+	text-transform: uppercase;
 }
 
 .search input
 {
-    font-size: 23px;
+	font-size: 23px;
+
+	z-index: 1;
+
 	width: 100%;
 	height: 100%;
 	padding: 5px 15px;
-    outline: 0;
-    border: 1px solid black;
-    z-index: 1;
+
+	border: 1px solid black;
+	outline: 0;
 }
 
 .search label
@@ -44,19 +53,127 @@ header .content
 
 	transition: 0.1s all;
 	transform: translateY(-50%);
-    background-color: transparent;
-	
+
+	background-color: transparent;
 }
 
 .search input:valid
 {
-    padding: 5px 35px;
+	padding: 5px 35px;
 }
+
 .search input:valid + label
 {
-    padding: 0 15px;
 	font-size: 16px;
-    background-color: #FFFFFF;
+
 	top: 0;
 	left: 10px;
+
+	padding: 0 15px;
+
+	background-color: #FFFFFF;
+}
+
+.search-result
+{
+    padding-bottom: 5px;
+    scrollbar-color: black white;
+    scrollbar-width: thin;
+    
+	display: flex;
+	overflow-x: scroll;
+	flex-flow: row nowrap;
+
+	min-height: 260px;
+}
+
+.search-result > .anime
+{
+	position: relative;
+
+	height: 325px;
+	margin-right: 25px;
+
+	border: 1px solid black;
+}
+
+.search-result > .anime:last-child
+{
+	margin-right: 0;
+}
+
+.search-result > .anime > img
+{
+	width: 230px;
+	height: 100%;
+}
+
+.search-result > .anime > h2, .search-result > .anime > p
+{
+	position: absolute;
+	left: 0;
+
+	width: 100%;
+	padding: 12px 15px;
+
+	transition: 0.3s all;
+
+	opacity: 0;
+	color: #FFFFFF;
+	background-color: rgba(0, 0, 0, 0.9);
+}
+
+.search-result > .anime > h2
+{
+	top: 0;
+}
+
+.search-result > .anime > p
+{
+	bottom: 0;
+}
+
+.search-result > .anime:hover > h2, .search-result > .anime:hover > p
+{
+	opacity: 1;
+}
+
+
+.search-result::-webkit-scrollbar-button
+{
+	width: 5px;
+	height: 0px;
+
+	background-image: url("");
+	background-repeat: no-repeat;
+}
+
+.search-result::-webkit-scrollbar-track
+{
+	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.search-result::-webkit-scrollbar-thumb
+{
+	background-color: #000000;
+}
+
+.search-result::-webkit-scrollbar-thumb:hover
+{
+	background-color: #000000;
+}
+
+.search-result::-webkit-resizer
+{
+	width: 4px;
+	height: 5px;
+
+	background-image: url("");
+	background-repeat: no-repeat;
+}
+
+.search-result::-webkit-scrollbar
+{
+	width: 4px;
+	height: 7px;
 }

@@ -1,21 +1,34 @@
-﻿class Handler
+﻿
+class Handler
 {
     constructor(params) 
     {
         this.request = new XMLHttpRequest();
+        this.data;
     }
 
-    searchAnime(name, page = 1)
+    searchAnime(name, element, page = 1)
     {
-        this.request.open('GET', `https://api.jikan.moe/v3/search/anime?q=${name}&page=${page}`);
+        this.request.open('GET', `https://api.jikan.moe/v3/search/anime?q=${name}&page=${page}`, true);
 
-        this.request.onreadystatechange = function () 
+        this.request.onload = () => 
         {
-            if (this.readyState === 4) 
+            this.data = JSON.parse(this.request.responseText)["results"];
+            console.log(this.data);
+
+            element.innerHTML = '';
+            this.data.forEach(anime =>
             {
-                return JSON.parse(this.responseText);
-            }
-        };
+                element.innerHTML = element.innerHTML + 
+                `
+                <div class="anime">
+                    <img src="${ anime.image_url }">
+                    <h2> ${ anime.title } </h2>
+                    <p> Episodes: ${ anime.episodes }</p>
+                </div>
+                `;                
+            });
+        }
 
         this.request.send();
     }
@@ -23,17 +36,17 @@
     getAnime(id)
     {
         this.request.open('GET', `https://api.jikan.moe/v3/anime/${id}`);
+        this.request.send();
 
         this.request.onreadystatechange = function () 
         {
-            if (this.readyState === 4) 
+            if (this.request.readyState === 4) 
             {
-                console.log(JSON.parse(this.responseText));
                 return JSON.parse(this.responseText);
             }
         };
 
-        this.request.send();
+        
     }
 }
 
