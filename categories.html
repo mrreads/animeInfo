@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> AnimeInfo </title>
+    <title> Categories </title>
 
     <link rel="stylesheet" href="./css/base.css">
     <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/categories.css">
 
-    <script src="./js/pages/index.js" defer></script>
+    <script src="./js/pages/categories.js" defer></script>
 </head>
 <body>
     <header>
@@ -18,16 +19,12 @@
                 <a href="./categories.html">категории</a>
             </div>
         </nav>
+
         <div class="content">
-
-            <div class="search">
-                <input type="text" id="search" required>
-                <label for="search"> ВВЕДИТЕ НАЗВАНИЕ АНИМЕ ЗДЕСЬ </label>
-            </div>
-
-            <div class="search-result">
-                
-            </div>
+            <h2> Загрузка может происходить довольно долго, данные берутся с внешнего API.</h2>
+            <p> Для оптимизации выводятся лишь первые 7 категорий (всего их 43). </p>
+            
+            <div class="categories"> </div>
         </div>
     </header>
 </body>
