@@ -1,1 +1,64 @@
-﻿
+﻿@import url('https://fonts.googleapis.com/css2?family=Play&display=swap');
+
+*, *::before, *::after
+{
+    transition: 0.1s all;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html, body
+{
+	min-width: 320px;
+}
+
+body
+{
+	display: flex;
+	flex-flow: column nowrap;
+}
+
+html
+{
+	height: 100%;
+} 
+
+body
+{
+	min-height: 100%;
+}
+
+html, body, .content
+{
+	width: 100%;
+}
+
+body, input, a, button
+{
+	font-family: 'Play', sans-serif;
+}
+
+.content
+{
+	max-width: 1440px;
+	margin: 0 auto;
+}
+
+a
+{
+	display: block;
+
+	cursor: pointer;
+	text-decoration: none;
+}
+
+ul
+{
+	list-style-type: none;
+}
+
+img
+{
+	object-fit: contain;
+}
